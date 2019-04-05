@@ -2,7 +2,7 @@
 
 class App 
 {
-    protected $controller = 'landing_page';
+    protected $controller = 'home';
     protected $method = 'index';
     protected $params = [];
 
@@ -10,7 +10,7 @@ class App
     {
         $url = $this->parseUrl();
 
-        // Controller
+        // controller
         if(file_exists('../app/controllers/'.$url[0].'.php')) 
         {
             $this->controller = $url[0];
@@ -36,6 +36,7 @@ class App
             $this->params = array_values($url);
         }
 
+        // jalankan controller & method, serta kirimkan params jika ada
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
 
