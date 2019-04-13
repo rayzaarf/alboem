@@ -1,13 +1,21 @@
 <?php
-
+session_start();
 class Home extends Controller 
-{
-
+{    
     public function index()
     {
-        //$data['judul'] = 'Home';
-        $this->view('templates/header');
-        $this->view('home/home');
-        $this->view('templates/footer');
+        if(!isset($_SESSION['user']))
+        {
+            $this->view('frontpage/index');
+        } else {
+            $this->view('templates/header');
+            $this->view('home/index');
+            $this->view('templates/footer');
+        }
+    }
+
+    public function upload()
+    {
+        
     }
 }
