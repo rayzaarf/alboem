@@ -2,7 +2,7 @@
 
 class App 
 {
-    protected $controller = 'landing_page';
+    protected $controller = 'home';
     protected $method = 'index';
     protected $params = [];
 
